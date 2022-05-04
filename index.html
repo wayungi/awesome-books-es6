@@ -8,6 +8,54 @@
   <title>Awesome book app es6</title>
 </head>
 <body>
+  <div class="wrapper">
+    <div>
+      <nav class="navbar">
+        <p id="name">Awsome books</p>
+        <ul class="navlist">
+          
+          <li class="list active"><a href='#' class="">List</a></li>
+          <li class="add-new"><a href='#'>Add new</a></li>
+          <li class="contact"><a href='#'>Contact</a></li>
+        </ul>
+      </nav>
+      <p id="datelux"></p>
+    </div>
+
+   
+   
+    <section class="list-books">
+      <h1 class="page-title">Awesome books</h1>
+      <div class="book-list">
+      </div>
+    </section>
+
+    <section class="add-books hide"> 
+      <h1 class="page-title">Add a new book</h1> 
+      <form action="./index.html" method="POST" name="book-form">
+        <input type="text" placeholder="Title" name="title" aria-label="fill in book title"><br>
+        <input type="text" placeholder="Author" name="author" aria-label="fill in book author's name"><br>
+        <input type="submit" value="Add" aria-label="Submit the form" class="submitBtn">
+      </form>
+    </section>
+
+
+    <section class="contact-info hide">
+      <h1 class="page-title">Contact information</h1>
+      <p class="tagline">Do you have any questions or you just want to say "Hello"?</p>
+      <p class="tagline">You can reach out to us!</p>
+      <ul class="list">
+        <li class="list-item">Our Email: <a href="mailto:someone@yoursite.com">mail@mail.com</a></li>
+        <li class="list-item">Our phone number:03986563564636</li>
+        <li class="list-item">Our Address:<address>Plo 2201, Lower Konge</address>  </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>Copyright 2022, All rights reserved</p>
+    </footer>
+
+  </div>
   
   <script src="index.js"></script>
 </body>
