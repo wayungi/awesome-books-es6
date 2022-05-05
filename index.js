@@ -90,9 +90,9 @@ formSubmit.addEventListener('click', (e) => {
   fields.title.value = '';
   fields.author.value = '';
   // add book to bookStore
-  const book = new UserInterface(title, author);
-  UserInterface.addBook(book);
-});
+  const book = new Book(title, author);
+  ui.addBook(book);
+}
 
 // remove element from bookstore on click
 bookList.addEventListener('click', (e) => {
