@@ -90,23 +90,25 @@ formSubmit.addEventListener('click', (e) => {
 }); 
 
 // remove element from bookstore on click
-bookList.addEventListener('click', (e) => {
-  // check if clicked element is delete button
-  const targetElement = e.target.classList[0];
-  if (targetElement === 'deleteBtn') {
-    // get book id
-    const bookId = +e.target.parentNode.childNodes[1].getAttribute('value');
-    // remove book from browser display
-    bookList.removeChild(e.target.parentNode);
-    // remove book from bookstore array
-    bookStore.forEach((book, index) => {
-      if (book.id === bookId) {
-        bookStore.splice(index, 1);
-      }
-    });
-    localStorage.setItem('books', JSON.stringify(bookStore));
-  }
-});
+bookList.addEventListener('click', (e) => ui.deleteBook(e))
+
+// {
+//   // // check if clicked element is delete button
+//   // const targetElement = e.target.classList[0];
+//   // if (targetElement === 'deleteBtn') {
+//   //   // get book id
+//   //   const bookId = +e.target.parentNode.childNodes[1].getAttribute('value');
+//   //   // remove book from browser display
+//   //   bookList.removeChild(e.target.parentNode);
+//   //   // remove book from bookstore array
+//   //   bookStore.forEach((book, index) => {
+//   //     if (book.id === bookId) {
+//   //       bookStore.splice(index, 1);
+//   //     }
+//   //   });
+//   //   localStorage.setItem('books', JSON.stringify(bookStore));
+//   // }
+// });
 
 contact.addEventListener('click', () => {
   contact.classList.add('active');
