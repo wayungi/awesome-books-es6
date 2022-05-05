@@ -1,4 +1,6 @@
 import { DateTime } from "./luxon.js";
+import Book from './modules/book.js';
+import ui from './modules/ui.js';
 
 
 // events: add book, remove book, display book
@@ -17,43 +19,43 @@ const listBksSection = document.querySelector('.list-books');
 let bookStore = [];
 
 class UserInterface {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-    this.id = new Date().valueOf();
-  }
+  // constructor(title, author) {
+  //   this.title = title;
+  //   this.author = author;
+  //   this.id = new Date().valueOf();
+  // }
 
-  static updateBrowser(book) {
-    const bookDiv = document.createElement('div');
-    bookDiv.classList.add('book-holder');
+  //static updateBrowser(book) {
+    // const bookDiv = document.createElement('div');
+    // bookDiv.classList.add('book-holder');
 
-    // add book title
-    const titleP = document.createElement('p');
-    titleP.textContent = `"${book.title}" by \xa0`;
-    // add author
-    const authorP = document.createElement('p');
-    authorP.textContent = ` ${book.author}`;
-    // add hidden id field
+    // // add book title
+    // const titleP = document.createElement('p');
+    // titleP.textContent = `"${book.title}" by \xa0`;
+    // // add author
+    // const authorP = document.createElement('p');
+    // authorP.textContent = ` ${book.author}`;
+    // // add hidden id field
 
-    const paraHolder = document.createElement('div');
-    paraHolder.appendChild(titleP);
-    paraHolder.appendChild(authorP);
-    paraHolder.classList.add('group-paragraph');
+    // const paraHolder = document.createElement('div');
+    // paraHolder.appendChild(titleP);
+    // paraHolder.appendChild(authorP);
+    // paraHolder.classList.add('group-paragraph');
 
-    const bookId = document.createElement('p');
-    bookId.setAttribute('type', 'hidden');
-    bookId.setAttribute('value', book.id);
-    //  create delete button
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Remove';
-    deleteBtn.classList.add('deleteBtn');
-    // const line = document.createElement('hr');
-    bookDiv.appendChild(paraHolder);
-    bookDiv.appendChild(bookId);
-    bookDiv.appendChild(deleteBtn);
+    // const bookId = document.createElement('p');
+    // bookId.setAttribute('type', 'hidden');
+    // bookId.setAttribute('value', book.id);
+    // //  create delete button
+    // const deleteBtn = document.createElement('button');
+    // deleteBtn.textContent = 'Remove';
+    // deleteBtn.classList.add('deleteBtn');
+    // // const line = document.createElement('hr');
+    // bookDiv.appendChild(paraHolder);
+    // bookDiv.appendChild(bookId);
+    // bookDiv.appendChild(deleteBtn);
     // bookDiv.appendChild(line);
-    bookList.appendChild(bookDiv);
-  }
+    //bookList.appendChild(bookDiv);
+  //}
 
   static displayBooks() {
     const books = localStorage.getItem('books');
@@ -75,7 +77,7 @@ class UserInterface {
 }
 
 // display books on page load and on refresh
-document.addEventListener('DOMContentLoaded', UserInterface.displayBooks());
+document.addEventListener('DOMContentLoaded', ui.displayBooks());
 
 // Add a book on form submission
 formSubmit.addEventListener('click', (e) => {
