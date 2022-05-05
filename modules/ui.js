@@ -1,3 +1,6 @@
+const { forms } = document;
+
+
 export default class UserInterface {
 
   static displayBooks(){
@@ -45,8 +48,13 @@ export default class UserInterface {
     bookDiv.appendChild(bookId);
     bookDiv.appendChild(deleteBtn);
     bookList.appendChild(bookDiv);
-
     bookList.appendChild(bookDiv);
   }
 
+  static clearForm(){
+    const form = forms['book-form'];
+    const fields = form.elements;
+    fields.title.value = '';
+    fields.author.value = '';
+  }
 }

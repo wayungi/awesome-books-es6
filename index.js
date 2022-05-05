@@ -67,13 +67,13 @@ class UserInterface {
     }
   }
 
-  static addBook(book) {
-    if (book.title !== '' || book.author !== '') {
-      bookStore.push(book);
-      localStorage.setItem('books', JSON.stringify(bookStore));
-      UserInterface.updateBrowser(book);
-    }
-  }
+  // static addBook(book) {
+  //   if (book.title !== '' || book.author !== '') {
+  //     bookStore.push(book);
+  //     localStorage.setItem('books', JSON.stringify(bookStore));
+  //     UserInterface.updateBrowser(book);
+  //   }
+  // }
 }
 
 // display books on page load and on refresh
@@ -82,17 +82,12 @@ document.addEventListener('DOMContentLoaded', ui.displayBooks());
 // Add a book on form submission
 formSubmit.addEventListener('click', (e) => {
   e.preventDefault();
-  const form = forms['book-form'];
-  const fields = form.elements;
-  const title = fields.title.value;
-  const author = fields.author.value;
-  // clear form fields
-  fields.title.value = '';
-  fields.author.value = '';
-  // add book to bookStore
+  const title = document.querySelector('.title').value
+  const author = document.querySelector('.author').value
+  ui.clearForm();
   const book = new Book(title, author);
   ui.addBook(book);
-}
+}); 
 
 // remove element from bookstore on click
 bookList.addEventListener('click', (e) => {
