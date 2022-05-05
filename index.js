@@ -16,47 +16,10 @@ const contactSection = document.querySelector('.contact-info');
 const addBooksSection = document.querySelector('.add-books');
 const listBksSection = document.querySelector('.list-books');
 
-let bookStore = [];
+//let bookStore = [];
 
 class UserInterface {
-  // constructor(title, author) {
-  //   this.title = title;
-  //   this.author = author;
-  //   this.id = new Date().valueOf();
-  // }
-
-  //static updateBrowser(book) {
-    // const bookDiv = document.createElement('div');
-    // bookDiv.classList.add('book-holder');
-
-    // // add book title
-    // const titleP = document.createElement('p');
-    // titleP.textContent = `"${book.title}" by \xa0`;
-    // // add author
-    // const authorP = document.createElement('p');
-    // authorP.textContent = ` ${book.author}`;
-    // // add hidden id field
-
-    // const paraHolder = document.createElement('div');
-    // paraHolder.appendChild(titleP);
-    // paraHolder.appendChild(authorP);
-    // paraHolder.classList.add('group-paragraph');
-
-    // const bookId = document.createElement('p');
-    // bookId.setAttribute('type', 'hidden');
-    // bookId.setAttribute('value', book.id);
-    // //  create delete button
-    // const deleteBtn = document.createElement('button');
-    // deleteBtn.textContent = 'Remove';
-    // deleteBtn.classList.add('deleteBtn');
-    // // const line = document.createElement('hr');
-    // bookDiv.appendChild(paraHolder);
-    // bookDiv.appendChild(bookId);
-    // bookDiv.appendChild(deleteBtn);
-    // bookDiv.appendChild(line);
-    //bookList.appendChild(bookDiv);
-  //}
-
+  
   static displayBooks() {
     const books = localStorage.getItem('books');
     if (books) {
@@ -67,13 +30,6 @@ class UserInterface {
     }
   }
 
-  // static addBook(book) {
-  //   if (book.title !== '' || book.author !== '') {
-  //     bookStore.push(book);
-  //     localStorage.setItem('books', JSON.stringify(bookStore));
-  //     UserInterface.updateBrowser(book);
-  //   }
-  // }
 }
 
 // display books on page load and on refresh
@@ -84,31 +40,15 @@ formSubmit.addEventListener('click', (e) => {
   e.preventDefault();
   const title = document.querySelector('.title').value
   const author = document.querySelector('.author').value
-  ui.clearForm();
-  const book = new Book(title, author);
-  ui.addBook(book);
+  if(title !== '' && author !== ''){
+    const book = new Book(title, author);
+    ui.addBook(book);
+    ui.clearForm();
+  }
 }); 
 
 // remove element from bookstore on click
 bookList.addEventListener('click', (e) => ui.deleteBook(e))
-
-// {
-//   // // check if clicked element is delete button
-//   // const targetElement = e.target.classList[0];
-//   // if (targetElement === 'deleteBtn') {
-//   //   // get book id
-//   //   const bookId = +e.target.parentNode.childNodes[1].getAttribute('value');
-//   //   // remove book from browser display
-//   //   bookList.removeChild(e.target.parentNode);
-//   //   // remove book from bookstore array
-//   //   bookStore.forEach((book, index) => {
-//   //     if (book.id === bookId) {
-//   //       bookStore.splice(index, 1);
-//   //     }
-//   //   });
-//   //   localStorage.setItem('books', JSON.stringify(bookStore));
-//   // }
-// });
 
 contact.addEventListener('click', () => {
   contact.classList.add('active');
