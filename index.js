@@ -1,5 +1,8 @@
 import { DateTime } from "./luxon.js";
 
+
+// events: add book, remove book, display book
+
 const formSubmit = document.querySelector('.submitBtn');
 const { forms } = document;
 const bookList = document.querySelector('.book-list');
