@@ -1,4 +1,3 @@
-import { DateTime } from "./luxon.js";
 import Book from './modules/book.js';
 import ui from './modules/ui.js';
 
@@ -11,26 +10,9 @@ const bookList = document.querySelector('.book-list');
 const listBooks = document.querySelector('.list');
 const newBook = document.querySelector('.add-new');
 const contact = document.querySelector('.contact');
-
 const contactSection = document.querySelector('.contact-info');
 const addBooksSection = document.querySelector('.add-books');
 const listBksSection = document.querySelector('.list-books');
-
-//let bookStore = [];
-
-class UserInterface {
-  
-  static displayBooks() {
-    const books = localStorage.getItem('books');
-    if (books) {
-      bookStore = JSON.parse(books);
-      bookStore.forEach((book) => UserInterface.updateBrowser(book));
-    } else {
-      localStorage.setItem('books', JSON.stringify(bookStore));
-    }
-  }
-
-}
 
 // display books on page load and on refresh
 document.addEventListener('DOMContentLoaded', ui.displayBooks());

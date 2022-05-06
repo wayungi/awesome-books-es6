@@ -1,26 +1,27 @@
 const { forms } = document;
 const bookList = document.querySelector('.book-list');
-const bookStore = [];
+import Storage from './storage.js';
+
+const bookStore = [
+  {
+  title:'Godzilla',
+  author: 'Mark Morrison',
+  id: 1651737334824
+},
+{
+  title:'Magic hook',
+  author: 'Peter Pan',
+  id: 1651737379193
+}
+];
 
 export default class UserInterface {
   static displayBooks(){
-    const storedBooks = [
-      {
-        title:'Godzilla',
-        author: 'Mark Morrison',
-        id: 1651737334824
-      },
-      {
-        title:'Magic hook',
-        author: 'Peter Pan',
-        id: 1651737379193
-      }
-    ];
-    const books = storedBooks;
-    books.forEach(book => UserInterface.addBook(book));
+    //get books from local storage
+    bookStore.forEach(book => UserInterface.updateInterface(book));
   }
 
-  static addBook(book) {
+  static updateInterface(book) {
     const bookDiv = document.createElement('div');
     bookDiv.classList.add('book-holder');
     // add book title
@@ -48,6 +49,10 @@ export default class UserInterface {
     bookDiv.appendChild(deleteBtn);
     bookList.appendChild(bookDiv);
     bookList.appendChild(bookDiv);
+
+    //add book to local storage
+  Storage.addBook(book);
+    
   }
 
   static clearForm(){
