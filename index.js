@@ -3,6 +3,10 @@ import Book from './modules/book.js';
 import ui from './modules/ui.js';
 import Storage from './modules/storage.js';
 
+
+
+//console.log(dt.toLocaleString(DateTime.DATETIME_MED)) //=> 'September 14, 3:21 AM'
+
 const formSubmit = document.querySelector('.submitBtn');
 const bookList = document.querySelector('.book-list');
 const listBooks = document.querySelector('.list');
@@ -11,6 +15,13 @@ const contact = document.querySelector('.contact');
 const contactSection = document.querySelector('.contact-info');
 const addBooksSection = document.querySelector('.add-books');
 const listBksSection = document.querySelector('.list-books');
+const dateHandle = document.getElementById('datelux');
+console.log(dateHandle)
+
+setTimeout(() => {
+  let dt = DateTime.now();
+  dateHandle.textContent = dt.toLocaleString(DateTime.DATETIME_MED);
+}, 1000);
 
 // display books on page load and on refresh
 document.addEventListener('DOMContentLoaded', ui.displayBooks());
@@ -56,3 +67,4 @@ listBooks.addEventListener('click', () => {
   addBooksSection.classList.add('hide');
   listBksSection.classList.remove('hide');
 });
+ 
