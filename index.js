@@ -1,11 +1,8 @@
 import { DateTime } from './luxon.js';
 import Book from './modules/book.js';
 import ui from './modules/ui.js';
-import Storage from './modules/storage.js';
 
-
-
-//console.log(dt.toLocaleString(DateTime.DATETIME_MED)) //=> 'September 14, 3:21 AM'
+// console.log(dt.toLocaleString(DateTime.DATETIME_MED)) //=> 'September 14, 3:21 AM'
 
 const formSubmit = document.querySelector('.submitBtn');
 const bookList = document.querySelector('.book-list');
@@ -16,10 +13,9 @@ const contactSection = document.querySelector('.contact-info');
 const addBooksSection = document.querySelector('.add-books');
 const listBksSection = document.querySelector('.list-books');
 const dateHandle = document.getElementById('datelux');
-console.log(dateHandle)
 
 setTimeout(() => {
-  let dt = DateTime.now();
+  const dt = DateTime.now();
   dateHandle.textContent = dt.toLocaleString(DateTime.DATETIME_MED);
 }, 1000);
 
@@ -67,4 +63,3 @@ listBooks.addEventListener('click', () => {
   addBooksSection.classList.add('hide');
   listBksSection.classList.remove('hide');
 });
- 
