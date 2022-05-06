@@ -1,9 +1,9 @@
+import { DateTime } from './luxon.js';
 import Book from './modules/book.js';
 import ui from './modules/ui.js';
 import Storage from './modules/storage.js';
 
 const formSubmit = document.querySelector('.submitBtn');
-const { forms } = document;
 const bookList = document.querySelector('.book-list');
 const listBooks = document.querySelector('.list');
 const newBook = document.querySelector('.add-new');
@@ -18,17 +18,17 @@ document.addEventListener('DOMContentLoaded', ui.displayBooks());
 // Add a book on form submission
 formSubmit.addEventListener('click', (e) => {
   e.preventDefault();
-  const title = document.querySelector('.title').value
-  const author = document.querySelector('.author').value
-  if(title !== '' && author !== ''){
+  const title = document.querySelector('.title').value;
+  const author = document.querySelector('.author').value;
+  if (title !== '' && author !== '') {
     const book = new Book(title, author);
-    Storage.addBook(book);
+    ui.addBook(book);
     ui.clearForm();
   }
-}); 
+});
 
 // remove element from bookstore on click
-bookList.addEventListener('click', (e) => ui.deleteBook(e))
+bookList.addEventListener('click', (e) => ui.deleteBook(e));
 
 contact.addEventListener('click', () => {
   contact.classList.add('active');

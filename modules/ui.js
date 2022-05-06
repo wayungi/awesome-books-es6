@@ -1,24 +1,12 @@
-const { forms } = document;
-const bookList = document.querySelector('.book-list');
 import Storage from './storage.js';
 
-// const bookStore = [
-//   {
-//   title:'Godzilla',
-//   author: 'Mark Morrison',
-//   id: 1651737334824
-// },
-// {
-//   title:'Magic hook',
-//   author: 'Peter Pan',
-//   id: 1651737379193
-// }
-// ];
+const { forms } = document;
+const bookList = document.querySelector('.book-list');
 
 export default class UserInterface {
-  static displayBooks(){
+  static displayBooks() {
     const bookStore = Storage.getBooks();
-    bookStore.forEach(book => UserInterface.updateInterface(book));
+    bookStore.forEach((book) => UserInterface.updateInterface(book));
   }
 
   static updateInterface(book) {
@@ -51,7 +39,7 @@ export default class UserInterface {
     bookList.appendChild(bookDiv);
   }
 
-  static clearForm(){
+  static clearForm() {
     const form = forms['book-form'];
     const fields = form.elements;
     fields.title.value = '';
@@ -76,5 +64,9 @@ export default class UserInterface {
       Storage.updateStorage(bookStore);
     }
   }
- 
+
+  static addBook(book) {
+    Storage.addBook(book);
+    UserInterface.updateInterface(book);
+  }
 }
