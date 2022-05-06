@@ -2,8 +2,6 @@ import { DateTime } from './luxon.js';
 import Book from './modules/book.js';
 import ui from './modules/ui.js';
 
-// console.log(dt.toLocaleString(DateTime.DATETIME_MED)) //=> 'September 14, 3:21 AM'
-
 const formSubmit = document.querySelector('.submitBtn');
 const bookList = document.querySelector('.book-list');
 const listBooks = document.querySelector('.list');
