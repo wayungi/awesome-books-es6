@@ -1,8 +1,6 @@
 import Book from './modules/book.js';
 import ui from './modules/ui.js';
-
-
-// events: add book, remove book, display book
+import Storage from './modules/storage.js';
 
 const formSubmit = document.querySelector('.submitBtn');
 const { forms } = document;
@@ -24,7 +22,7 @@ formSubmit.addEventListener('click', (e) => {
   const author = document.querySelector('.author').value
   if(title !== '' && author !== ''){
     const book = new Book(title, author);
-    ui.addBook(book);
+    Storage.addBook(book);
     ui.clearForm();
   }
 }); 

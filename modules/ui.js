@@ -2,22 +2,22 @@ const { forms } = document;
 const bookList = document.querySelector('.book-list');
 import Storage from './storage.js';
 
-const bookStore = [
-  {
-  title:'Godzilla',
-  author: 'Mark Morrison',
-  id: 1651737334824
-},
-{
-  title:'Magic hook',
-  author: 'Peter Pan',
-  id: 1651737379193
-}
-];
+// const bookStore = [
+//   {
+//   title:'Godzilla',
+//   author: 'Mark Morrison',
+//   id: 1651737334824
+// },
+// {
+//   title:'Magic hook',
+//   author: 'Peter Pan',
+//   id: 1651737379193
+// }
+// ];
 
 export default class UserInterface {
   static displayBooks(){
-    //get books from local storage
+    const bookStore = Storage.getBooks();
     bookStore.forEach(book => UserInterface.updateInterface(book));
   }
 
@@ -49,10 +49,6 @@ export default class UserInterface {
     bookDiv.appendChild(deleteBtn);
     bookList.appendChild(bookDiv);
     bookList.appendChild(bookDiv);
-
-    //add book to local storage
-  Storage.addBook(book);
-    
   }
 
   static clearForm(){
@@ -71,14 +67,14 @@ export default class UserInterface {
       // remove book from browser display
       bookList.removeChild(e.target.parentNode);
       // remove book from bookstore array
+      const bookStore = Storage.getBooks();
       bookStore.forEach((book, index) => {
         if (book.id === bookId) {
           bookStore.splice(index, 1);
         }
       });
-      //localStorage.setItem('books', JSON.stringify(bookStore));
+      Storage.updateStorage(bookStore);
     }
   }
-
-  
+ 
 }
