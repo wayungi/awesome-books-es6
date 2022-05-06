@@ -1,0 +1,153 @@
+form input {
+  margin: 5px 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.list-books {
+  outline: 4px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-basis: 100%;
+  margin: 10px 0;
+  padding: 15px 20px;
+}
+
+nav {
+  display: inline-flex;
+  /* stylelint-disable-next-line csstree/validator */
+  justify-content: baseline;
+}
+
+.add-books {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.book-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.group-paragraph {
+  display: flex;
+}
+
+.navbar {
+  outline: 1px solid black;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  width: 100vw;
+}
+
+.navlist {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: end;
+  margin-right: 90px;
+}
+
+#name {
+  margin-top: 20px;
+  font-size: 50px;
+  margin-left: 90px;
+  font-weight: bold;
+}
+
+#datelux {
+  display: flex;
+  justify-content: end;
+  margin-right: 80px;
+  font-weight: bold;
+}
+
+.navlist li {
+  list-style: none;
+  border-right: 1px solid black;
+  padding: 5px 10px;
+  margin-top: 30px;
+}
+
+.navlist li a {
+  text-decoration: none;
+  color: black;
+}
+
+.navlist li:last-child {
+  border: none;
+}
+
+.navlist li.active a {
+  color: blue;
+}
+
+.page-title,
+.book-list {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding: 0;
+  width: 30%;
+  margin: 0 auto;
+}
+
+input[type='text'] {
+  width: 100%;
+  height: 30px;
+  border: 2px solid black;
+  border-radius: 1px;
+  box-sizing: border-box;
+  padding: 2px 5px;
+}
+
+input[type='submit'] {
+  all: unset;
+  border: 3px solid black;
+  padding: 5px 15px;
+  box-shadow: 2px 2px 8px black;
+}
+
+button {
+  all: unset;
+  border: 2px solid black;
+  height: 40px;
+  width: 120px;
+  background-color: #fff;
+  font-weight: bold;
+  box-shadow: 0 2px 8px black;
+}
+
+.book-list > div:nth-child(odd) {
+  background-color: rgba(21, 21, 21, 0.3);
+}
+
+footer {
+  border: 1px solid black;
+  flex-basis: 100%;
+  text-align: center;
+}
+
+section {
+  margin: 5px 0;
+}
+
+section.hide {
+  display: none;
+}
