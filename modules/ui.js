@@ -4,12 +4,12 @@ const { forms } = document;
 const bookList = document.querySelector('.book-list');
 
 export default class UserInterface {
-  static displayBooks() {
+  static displayBooks = () => {
     const bookStore = Storage.getBooks();
     bookStore.forEach((book) => UserInterface.updateInterface(book));
   }
 
-  static updateInterface(book) {
+  static updateInterface = (book) => {
     const bookDiv = document.createElement('div');
     bookDiv.classList.add('book-holder');
     // add book title
@@ -39,14 +39,14 @@ export default class UserInterface {
     bookList.appendChild(bookDiv);
   }
 
-  static clearForm() {
+  static clearForm = () => {
     const form = forms['book-form'];
     const fields = form.elements;
     fields.title.value = '';
     fields.author.value = '';
   }
 
-  static deleteBook(e) {
+  static deleteBook = (e) => {
     // check if clicked element is delete button
     const targetElement = e.target.classList[0];
     if (targetElement === 'deleteBtn') {
@@ -65,7 +65,7 @@ export default class UserInterface {
     }
   }
 
-  static addBook(book) {
+  static addBook = (book) => {
     Storage.addBook(book);
     UserInterface.updateInterface(book);
   }
